@@ -1,0 +1,35 @@
+# Punkaid's .zsrhc
+# https://github.com/punkaid/dotfiles
+
+# oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="../../dotfiles/my_zsh_theme"
+DISABLE_CORRECTION="true"
+source $ZSH/oh-my-zsh.sh
+
+# oh-my-zsh plugins
+plugins=(git)
+
+# bin paths
+if [[ `uname` == 'Darwin' ]]; then
+  export PATH="$(brew --prefix josegonzalez/php/php55)/bin:$PATH"
+fi
+if [ -d "$HOME/.rbenv" ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+export PATH="$HOME/.bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="./bin:$PATH"
+
+# env vars
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export EDITOR=vim
+
+# aditionnal sources
+source $HOME/.aliases
+source $HOME/.env
+
+cd $HOME/code/repos

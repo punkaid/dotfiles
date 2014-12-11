@@ -1,0 +1,29 @@
+# Basic VM Bashrc
+
+export PATH="./bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export EDITOR=vim
+export VEX_ENV=development
+
+alias gaa='git add --all'
+alias gc='git commit -m'
+alias gp='git push origin HEAD'
+alias gpr='git pull --rebase'
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias gd='git diff'
+alias gca='git commit -a'
+alias gco='git checkout'
+alias gcm='git checkout master'
+alias gb='git branch'
+alias gs='git status -sb'
+alias gfr='git fetch; git rebase;'
+alias gsi='git submodule init'
+alias gsu='git submodule update'
+
+alias vex='/var/www/./vex'
+
+export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h: \[\e[33m\]\w\[\e[0m\]\n\$ '
