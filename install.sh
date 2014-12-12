@@ -19,7 +19,7 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	rm $HOME/.zshrc
 fi
 
-if [[ -f "$HOME/.env" ]]; then
+if [ ! -f $HOME/.env ]; then
   touch $HOME/.env
 fi
 
