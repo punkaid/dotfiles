@@ -8,10 +8,6 @@ for directory in $code "$HOME/.bin" "$code/dev" "$code/repos" "$code/libs"; do
 	fi
 done
 
-if [[ ! `uname` == 'Darwin' ]]; then
-	sudo apt-get install vim git curl zsh php5 php5-json
-fi
-
 rm "$HOME/.bin/composer"
 cd "$code/dev"
 curl -sS https://getcomposer.org/installer | php

@@ -4,8 +4,8 @@
 	editor = vim
 	excludesfile = $HOME/.gitignore_global
 [user]
-	name = Frederic Gingras
-	email = frederic@gingras.cc
+	name = Sébastien Roy
+	email = sebastien.roy@anekdotes.com
 [push]
 	default = simple
 [credential]
