@@ -1,8 +1,11 @@
 " Punkaid's .vimrc
-call pathogen#infect()
+"call pathogen#infect()
+call pathogen#runtime_append_all_bundles()
+filetype off
+syntax on
+filetype plugin indent on
 
 " Behaviors
-syntax on
 set hidden
 set nocompatible " no vi support
 set clipboard=unnamed " use mac clipboard
