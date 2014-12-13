@@ -69,7 +69,7 @@ noremap <leader>nt :NERDTree<CR>
 " Specifics
 filetype plugin indent on
 set backupdir=~/.vim/backups " centralize
-set directory=~/.vim/swaps " centralize
+set directory=~/.vim/swap " centralize
 if exists("&undodir")
   set undodir=~/.vim/undo
 endif
