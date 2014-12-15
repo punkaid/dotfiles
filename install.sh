@@ -24,12 +24,20 @@ if [ ! -f $HOME/.env ]; then
 fi
 
 DOTFILES="$HOME/dotfiles/tolink"
-
 for file in $(ls $DOTFILES); do
 	if [ ! -L "$HOME/.$file" ]; then
 		echo "Linking $file"
 		ln -s $DOTFILES/$file $HOME/.$file
 	fi
+done
+
+SOURCEFONTS="$HOME/dotfiles/resources/fonts"
+TARGETFONTS="$HOME/Library/Fonts"
+for font in $(ls $SOURCEFONTS); do
+  if [ ! -e "$TARGETFONTS/$font" ]; then
+    echo "Copying $font"
+    cp $SOURCEFONTS/$font $TARGETFONTS/$font
+  fi
 done
 
 ln -s $HOME/dotfiles/resources/punkaid.zsh-theme $HOME/.oh-my-zsh/themes/punkaid.zsh-theme
