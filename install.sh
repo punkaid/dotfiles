@@ -32,4 +32,6 @@ for file in $(ls $DOTFILES); do
 	fi
 done
 
+ln -s $HOME/dotfiles/resources/punkaid.zsh-theme $HOME/.oh-my-zsh/themes/punkaid.zsh-theme
+
 echo "All done master!"

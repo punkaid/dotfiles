@@ -1,22 +1,11 @@
-# Based on mortal scumbag from oh-my-zsh themes
-
-function git_prompt_info() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
-}
-function the_branch() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "${ref#refs/heads/}"
-}
-
 function my_git_prompt() {
   tester=$(git rev-parse --git-dir 2> /dev/null) || return
-
+  
   INDEX=$(git status --porcelain 2> /dev/null)
   STATUS=""
 
   # is branch ahead?
-  if $(echo "$(git log origin/$(the_branch)..HEAD 2> /dev/null)" | grep '^commit' &> /dev/null); then
+  if $(echo "$(git log origin/$(current_branch)..HEAD 2> /dev/null)" | grep '^commit' &> /dev/null); then
     STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_AHEAD"
   fi
 
@@ -48,7 +37,7 @@ function my_git_prompt() {
 }
 
 function my_current_branch() {
-  echo $(the_branch || echo "(no branch)")
+  echo $(current_branch || echo "(no branch)")
 }
 
 function ssh_connection() {

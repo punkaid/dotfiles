@@ -2,7 +2,7 @@
 # Configuration
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="punkaid"
+ZSH_THEME="../../dotfiles/resources/punkaid"
 DISABLE_CORRECTION="true"
 ##########################################################################################
 
