@@ -1,7 +1,16 @@
 " Punkaid's .vimrc
+
+"
+" Pathogen infection
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 call pathogen#infect()
+"#########################################################################################
+
 syntax on
+
+"
 " Behaviors
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 set hidden
 set nocompatible " no vi support
 set clipboard=unnamed " use mac clipboard
@@ -14,28 +23,34 @@ set secure " ^ in secure mode
 set noerrorbells " no error bells
 set nostartofline " no sol while moving
 set shortmess=atI " don’t show the intro at startup
-
 set wildmenu " shell style completion
 set gdefault " add g flag to search & replace by default
 set ignorecase " ignore searches case
 set incsearch " dynamicly search
-
 set tabstop=2 " Tab by two
 set shiftwidth=2 " ^
 set expandtab " ^ (spaces)
-
 set splitbelow " More natural window splits
 set splitright
+"#########################################################################################
 
+"
 " folding settings
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
+"#########################################################################################
 
+"
 " Font
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+"#########################################################################################
 
+"
 " UI
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 set t_Co=256
 colorscheme molokai
 set modeline
@@ -52,38 +67,49 @@ set showmode " show the current mode
 set title " Show the filename in the window titlebar
 set list " show whitespace
 set scrolloff=6 " scroll page when at 6 line of end/top
+"#########################################################################################
 
+"
 " Commands
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 let mapleader="," " have a better leader
 set backspace=indent,eol,start " allow bckspace in insert
-
 nnoremap <CR> o<Esc>
-
 nnoremap <C-J> <C-W><C-J> " Map Ctrl+hjkl to move around splits
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
 noremap <leader>nt :NERDTree<CR>
+"#########################################################################################
 
+"
 " Specifics
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 filetype plugin indent on
 set backupdir=~/.vim/backups " centralize
 set directory=~/.vim/swap " centralize
 if exists("&undodir")
   set undodir=~/.vim/undo
 endif
+"#########################################################################################
 
+"
 " Buffer explorer config
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 let g:bufExplorerShowRelativePath=1
 
+"
 " Use relative line numbers
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 if exists("&relativenumber")
   set relativenumber
   au BufReadPost * set relativenumber
 endif
+"#########################################################################################
 
+"
 " Strip trailing whitespace (,ss)
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 function! StripWhitespace()
   let save_cursor = getpos(".")
   let old_query = getreg('/')
@@ -92,25 +118,31 @@ function! StripWhitespace()
   call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
+"#########################################################################################
 
+"
 " Fancy RSpec runner
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 " Credits: http://blog.santosvelasco.com/2012/07/04/vim-and-rspec-run-the-test-under-the-cursor/
 function! RSpecFile()
   execute("!clear && rspec " . expand("%p"))
 endfunction
 map <leader>R :call RSpecFile() <CR>
 command! RSpecFile call RSpecFile()
-
 function! RSpecCurrent()
   execute("!clear && rspec " . expand("%p") . ":" . line("."))
 endfunction
 map <leader>r :call RSpecCurrent() <CR>
 command! RSpecCurrent call RSpecCurrent()
+"#########################################################################################
 
+"
 " Automatic commands
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 if has("autocmd")
   " Enable file type detection
   filetype on
   " Treat .json files as .js
   autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 endif
+"#########################################################################################
