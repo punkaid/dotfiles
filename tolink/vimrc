@@ -103,8 +103,6 @@ let g:bufExplorerShowRelativePath=1
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 if exists("&relativenumber")
   set relativenumber
-  set number
-""  au BufReadPost * set relativenumber
 endif
 "#########################################################################################
 

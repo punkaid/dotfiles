@@ -44,8 +44,9 @@ alias scss="print 'sass --watch source:target --style compressed'"
 ##########################################################################################
 
 #
-# Sublime Text
+# Editor
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+alias vim="'/usr/local/Cellar/vim/7.4.488/bin/vim'"
 alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 ##########################################################################################
 
