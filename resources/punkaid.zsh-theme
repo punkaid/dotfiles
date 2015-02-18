@@ -47,7 +47,8 @@ function ssh_connection() {
 }
 
 local ret_status="%(?:%{$fg_bold[cyan]%}:%{$fg_bold[red]%})%?%{$reset_color%}"
-PROMPT=$'\n$(ssh_connection)%{$fg_bold[blue]%}%n%{$reset_color%}$(my_git_prompt) : %~\n[${ret_status}] %# '
+#PROMPT=$'\n$(ssh_connection)%{$fg_bold[blue]%}%n%{$reset_color%}$(my_git_prompt) : %~\n[${ret_status}] %# '
+PROMPT=$'\n$(ssh_connection)%{$fg_bold[blue]%}%~%{$reset_color%}$(my_git_prompt) : %\n\n[${ret_status}] %# '
 
 ZSH_THEME_PROMPT_RETURNCODE_PREFIX="%{$fg_bold[red]%}"
 ZSH_THEME_GIT_PROMPT_PREFIX=" $fg[white]‹ %{$fg_bold[yellow]%}"
