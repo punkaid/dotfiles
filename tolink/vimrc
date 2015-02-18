@@ -32,6 +32,7 @@ set shiftwidth=2 " ^
 set expandtab " ^ (spaces)
 set splitbelow " More natural window splits
 set splitright
+set noswapfile " dont create swapfile
 "#########################################################################################
 
 "
