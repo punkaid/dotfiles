@@ -55,3 +55,6 @@ source $HOME/.env
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 cd $HOME/code/repos
 ##########################################################################################
+
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH/ # macports
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
