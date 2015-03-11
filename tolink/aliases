@@ -29,9 +29,12 @@ alias ci='composer install'
 alias gaa='git add --all'
 alias gc='git commit -m'
 alias gp='git push origin HEAD'
+alias gpl='git push live'
+alias gpld='git push live dev:master'
 alias gco='git checkout'
 alias gsi='git submodule init'
 alias gsu='git submodule update'
+alias gm='git merge --no-ff'
 alias gs='git status -sb' # it's fun.
 alias gfr='git fetch; git rebase;'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
