@@ -57,6 +57,8 @@ set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 "colorscheme molokai
+set statusline=%t
+set statusline+=%{fugitive#statusline()}
 set modeline
 set modelines=4
 set laststatus=2 " always have status shown
