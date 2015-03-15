@@ -32,7 +32,7 @@ for file in $(ls $DOTFILES); do
 done
 
 SOURCEFONTS="$HOME/dotfiles/resources/fonts"
-TARGETFONTS="$HOME/Library/Fonts"
+TARGETFONTS="$HOME/.font"
 for font in $(ls $SOURCEFONTS); do
   if [ ! -e "$TARGETFONTS/$font" ]; then
     echo "Copying $font"

@@ -10,8 +10,6 @@ alias ~="cd ~"
 #
 # Navigation
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias cddl="cd ~/Downloads"
-alias cddt="cd ~/Desktop"
 alias cdr="cd ~/code/repos"
 ##########################################################################################
 
@@ -49,7 +47,6 @@ alias scss="print 'sass --watch source:target --style compressed'"
 #
 # Editor
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias vim="'/usr/local/Cellar/vim/7.4.488/bin/vim'"
 alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 ##########################################################################################
 
@@ -78,7 +75,7 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 #
 # Flush Directory Service cache
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias flush="sudo killall -HUP mDNSResponder"
+alias flush="sync; sudo echo 3 > /proc/sys/vm/drop_caches"
 ##########################################################################################
 #
 #
@@ -96,7 +93,6 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 #
 # Lock the screen (when going AFK)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 ##########################################################################################
 
 #
