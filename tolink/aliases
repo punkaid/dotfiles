@@ -1,18 +1,20 @@
 #
-# Easier navigation: .., ..., and ~
+# Easier navigation
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias ~="cd ~"
-##########################################################################################
-
-#
-# Navigation
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 alias cddl="cd ~/Downloads"
 alias cddt="cd ~/Desktop"
 alias cdr="cd ~/code/repos"
+##########################################################################################
+
+#
+# Bundle
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+alias bi="bundle intall"
+alias bcpg="bundle config --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config"
 ##########################################################################################
 
 #
@@ -28,6 +30,7 @@ alias ci='composer install'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 alias gaa='git add --all'
 alias gc='git commit -m'
+alias gfp='git push -u'
 alias gp='git push origin HEAD'
 alias gpl='git push live'
 alias gpld='git push live dev:master'
