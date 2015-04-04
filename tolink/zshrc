@@ -34,6 +34,10 @@ export PATH="./bin:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"
 # postgresapp.com
 export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+# macports
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH/
+# Add RVM
+export PATH="$PATH:$HOME/.rvm/bin"
 ##########################################################################################
 
 #
@@ -58,5 +62,3 @@ source $HOME/.env
 cd $HOME/code/repos
 ##########################################################################################
 
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH/ # macports
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
