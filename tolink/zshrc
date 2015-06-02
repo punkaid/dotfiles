@@ -30,14 +30,6 @@ fi
 export PATH="$HOME/.bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="./bin:$PATH"
-# Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-# postgresapp.com
-export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
-# macports
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH/
-# Add RVM
-export PATH="$PATH:$HOME/.rvm/bin"
 ##########################################################################################
 
 #
