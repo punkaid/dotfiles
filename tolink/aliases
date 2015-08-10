@@ -39,7 +39,9 @@ alias gsi='git submodule init'
 alias gsu='git submodule update'
 alias gm='git merge --no-ff'
 alias gs='git status -sb' # it's fun.
-alias gfr='git fetch; git rebase; composer update'
+alias gfr='git fetch; git rebase;'
+alias gfru='git fetch; git rebase; composer update'
+alias gfri='git fetch; git rebase; composer install'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 ##########################################################################################
 
