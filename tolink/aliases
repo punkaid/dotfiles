@@ -93,17 +93,11 @@ alias vhost="sudo vim /etc/hosts"
 ##########################################################################################
 
 #
-# Recursively delete `.DS_Store` files
+# Recursively delete `.DS_Store` and `.LCK` files
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete; find . -type f -name '*.LCK' -ls -delete;"
 ##########################################################################################
 
-#
-# Recursively delete `.LCK` files
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias cleanuplck="find . -type f -name '*.LCK' -ls -delete"
-##########################################################################################
-#
 #
 # Lock the screen (when going AFK)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
