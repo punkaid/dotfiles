@@ -94,7 +94,8 @@ alias vhost="sudo vim /etc/hosts"
 #
 # Recursively delete `.DS_Store` and `.LCK` files
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete; find . -type f -name '*.LCK' -ls -delete;"
+alias cleanup="find . -type f -name '.DS_Store' -ls -delete; find . -type f -name '*.LCK' -ls -delete; find . -type d -name '_notes' -print | xargs /bin/rm -rf;"
+alias cleanupnote="find . -type d -name '_notes' -print | xargs /bin/rm -rf;"
 ##########################################################################################
 
 #
