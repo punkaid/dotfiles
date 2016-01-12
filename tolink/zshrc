@@ -30,6 +30,7 @@ fi
 export PATH="$HOME/.bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="./bin:$PATH"
+export PATH="~/.composer/vendor/bin"
 ##########################################################################################
 
 #
