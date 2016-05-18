@@ -8,6 +8,7 @@ alias ~="cd ~"
 alias cddl="cd ~/Downloads"
 alias cddt="cd ~/Desktop"
 alias cdr="cd ~/code/repos"
+alias cla="clear;la"
 ##########################################################################################
 
 #
@@ -23,6 +24,7 @@ alias bcpg="bundle config --with-pg-config=/Applications/Postgres.app/Contents/V
 alias c='composer'
 alias cu='composer update'
 alias ci='composer install'
+alias ca='composer dump-autoload'
 ##########################################################################################
 
 #
