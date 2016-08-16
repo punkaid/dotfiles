@@ -1,14 +1,75 @@
-# Minimal settings
+#
+# Config
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+export TERM=xterm-256color
+##########################################################################################
 
+#
+# Plugins
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+plugins=(git)
+##########################################################################################
+
+#
+# Paths
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+export PATH="$HOME/.bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export PATH="./bin:$PATH"
-export PATH="$HOME/bin:$PATH"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+##########################################################################################
 
+#
+# env vars
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export EDITOR=vim
+##########################################################################################
 
-export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h: \[\e[33m\]\w\[\e[0m\]\n\$ '
+#
+# Aditionnal sources
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+source $HOME/.aliases
+source $HOME/.env
+##########################################################################################
 
+make_site() {
+  sudo mkdir ~/tmp
+  # Generate Apache Config File
+  sudo cp ~/dotfiles/apache/base.loc.conf ~/tmp/$1.loc.conf
+  sudo perl -pi -e 's/#Website#/'$1'/g' ~/tmp/$1.loc.conf
+  sudo mv ~/tmp/$1.loc.conf /etc/apache2/sites-available/$1.loc.conf
+  # Create Apache Directory
+  sudo mkdir /var/www/$1.loc
+  sudo mkdir ~/projects/$1.com
+  sudo ln -sf ~/projects/$1.com /var/www/$1.loc/public_html;
+  sudo chown -R $USER:$USER /var/www/$1.loc/public_html
+  # Enable site
+  sudo a2ensite $1.loc.conf
+  sudo service apache2 restart
+  # Setup hosts file
+  sudo -- sh -c "echo 127.0.0.1 "$1".loc >> /etc/hosts"
+  sudo -- sh -c "echo 127.0.0.1 www."$1".loc >> /etc/hosts"
+  sudo chmod -R 777 ~/projects
+  sudo rm -d -r -f ~/tmp
+}
 
+delete_site() {
+  # UnSetup hosts file
+  sudo perl -ni.bak -e "print unless /127.0.0.1 www."$1".loc/" /etc/hosts
+  sudo perl -ni.bak -e "print unless /127.0.0.1 "$1".loc/" /etc/hosts
+  # Disable site
+  sudo a2dissite $1.loc.conf
+  sudo service apache2 restart
+  # Remove Apache Directory
+  sudo rm -r -f -d /var/www/$1.loc
+  # Remove Apache Config
+  sudo rm -f /etc/apache2/sites-available/$1.loc.conf
+}
+
+#
+# cd in repo directory
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+cd $HOME/code/repos
+##########################################################################################
