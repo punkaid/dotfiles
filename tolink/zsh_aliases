@@ -26,13 +26,6 @@ function cdl() {
 ##########################################################################################
 
 #
-# Bundle
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias bi="bundle intall"
-alias bcpg="bundle config --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config"
-##########################################################################################
-
-#
 # Composer
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 alias c='composer'
@@ -58,12 +51,6 @@ alias gfr='git fetch; git rebase;'
 alias gfru='git fetch; git rebase; composer update'
 alias gfri='git fetch; git rebase; composer install'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-##########################################################################################
-
-#
-# Sass
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias scss="print 'sass --watch source:target --style compressed'"
 ##########################################################################################
 
 #
@@ -102,7 +89,6 @@ alias vhost="sudo vim /etc/hosts"
 # Recursively delete `.DS_Store` and `.LCK` files
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 alias cleanup="find . -type f -name '.DS_Store' -ls -delete; find . -type f -name '*.LCK' -ls -delete; find . -type d -name '_notes' -print | xargs /bin/rm -rf;"
-alias cleanupnote="find . -type d -name '_notes' -print | xargs /bin/rm -rf;"
 ##########################################################################################
 
 #

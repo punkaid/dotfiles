@@ -45,18 +45,12 @@ set foldlevel=1         "this is just what i use
 "#########################################################################################
 
 "
-" Font
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-"#########################################################################################
-
-"
 " UI
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
-"colorscheme molokai
 set statusline=%t
 "set statusline+=%{fugitive#statusline()}
 set modeline
@@ -123,22 +117,6 @@ function! StripWhitespace()
   call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
-"#########################################################################################
-
-"
-" Fancy RSpec runner
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-" Credits: http://blog.santosvelasco.com/2012/07/04/vim-and-rspec-run-the-test-under-the-cursor/
-function! RSpecFile()
-  execute("!clear && rspec " . expand("%p"))
-endfunction
-map <leader>R :call RSpecFile() <CR>
-command! RSpecFile call RSpecFile()
-function! RSpecCurrent()
-  execute("!clear && rspec " . expand("%p") . ":" . line("."))
-endfunction
-map <leader>r :call RSpecCurrent() <CR>
-command! RSpecCurrent call RSpecCurrent()
 "#########################################################################################
 
 "
