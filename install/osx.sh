@@ -492,7 +492,7 @@ defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -stri
 defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
 
 # Disable automatic spell checking
-defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled"
+# defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled"
 
 ###############################################################################
 # Spotlight                                                                   #
@@ -649,7 +649,7 @@ defaults write ~/Library/Preferences/org.gpgtools.gpgmail SignNewEmailsByDefault
 ###############################################################################
 
 # Install Sublime Text settings
-cp -r resources/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
+# cp -r resources/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
 
 ###############################################################################
 # Kill affected applications                                                  #

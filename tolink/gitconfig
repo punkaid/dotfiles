@@ -4,8 +4,8 @@
 	editor = vim
 	excludesfile = $HOME/.gitignore_global
 [user]
-	name = Sébastien Roy
-	email = sebastien.roy@anekdotes.com
+	name = punkaid
+	email = punkaid@gmail.com
 [push]
 	default = simple
 [credential]

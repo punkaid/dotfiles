@@ -1,56 +1,4 @@
 #
-# Easier navigation: .., ..., and ~
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias ~="cd ~"
-##########################################################################################
-
-#
-# Navigation
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias cddl="cd ~/Downloads"
-alias cddt="cd ~/Desktop"
-alias cdr="cd ~/code/repos"
-##########################################################################################
-
-#
-# Composer
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias c='composer'
-alias cu='composer update'
-alias ci='composer install'
-##########################################################################################
-
-#
-# Git
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias gaa='git add --all'
-alias gc='git commit -m'
-alias gp='git push origin HEAD'
-alias gco='git checkout'
-alias gsi='git submodule init'
-alias gsu='git submodule update'
-alias gs='git status -sb' # it's fun.
-alias gfr='git fetch; git rebase;'
-alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-##########################################################################################
-
-#
-# Sass
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias scss="print 'sass --watch source:target --style compressed'"
-##########################################################################################
-
-#
-# Editor
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias vim="'/usr/local/Cellar/vim/7.4.488/bin/vim'"
-alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
-##########################################################################################
-
-#
 # Detect which `ls` flavor is in use
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -61,9 +9,62 @@ fi
 ##########################################################################################
 
 #
+# Easier navigation
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias ~="cd ~"
+alias cddl="cd ~/Downloads"
+alias cddt="cd ~/Desktop"
+alias cdr="cd ~/code/repos"
+function cdl() {
+  cd "$1";
+  clear;
+  ls -lF ${colorflag}
+}
+##########################################################################################
+
+#
+# Composer
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+alias c='composer'
+alias cu='composer update'
+alias ci='composer install'
+alias ca='composer dump-autoload'
+##########################################################################################
+
+#
+# Git
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+alias gaa='git add --all'
+alias gc='git commit -m'
+alias gfp='git push -u'
+alias gp='git push origin HEAD'
+alias gpl='git push live master'
+alias gco='git checkout'
+alias gsi='git submodule init'
+alias gsu='git submodule update'
+alias gm='git merge --no-ff'
+alias gs='git status -sb' # it's fun.
+alias gfr='git fetch; git rebase;'
+alias gfru='git fetch; git rebase; composer update'
+alias gfri='git fetch; git rebase; composer install'
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+##########################################################################################
+
+#
+# Editor
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+alias vim="'/usr/local/Cellar/vim/7.4.712/bin/vim'"
+alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
+##########################################################################################
+
+#
 # List all files colorized in long format
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 alias l="ls -lF ${colorflag}"
+alias cl="clear; ls -lF ${colorflag}"
 # List all files colorized in long format, including dot files
 alias la="ls -laF ${colorflag}"
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
@@ -75,7 +76,7 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 #
 # Flush Directory Service cache
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias flush="sudo killall -HUP mDNSResponder"
+alias flush="sudo discoveryutil mdnsflushcache"
 ##########################################################################################
 #
 #
@@ -85,9 +86,9 @@ alias vhost="sudo vim /etc/hosts"
 ##########################################################################################
 
 #
-# Recursively delete `.DS_Store` files
+# Recursively delete `.DS_Store` and `.LCK` files
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias cleanup="find . -type f -name '.DS_Store' -ls -delete; find . -type f -name '*.LCK' -ls -delete; find . -type d -name '_notes' -print | xargs /bin/rm -rf;"
 ##########################################################################################
 
 #

@@ -23,15 +23,10 @@ DISABLE_UPDATE_PROMPT=true
 #
 # Paths
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-if [ -d "$HOME/.rbenv" ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
 export PATH="$HOME/.bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="./bin:$PATH"
-# Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH=~/.composer/vendor/bin:$PATH
 ##########################################################################################
 
 #
@@ -46,7 +41,7 @@ export EDITOR=vim
 #
 # Aditionnal sources
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-source $HOME/.aliases
+source $HOME/.zsh_aliases
 source $HOME/.env
 ##########################################################################################
 
@@ -55,3 +50,4 @@ source $HOME/.env
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 cd $HOME/code/repos
 ##########################################################################################
+
