@@ -3,7 +3,7 @@
 code="$HOME/code"
 
 echo "Creating working directories ......................"
-for directory in $code "$HOME/.bin" "$code/dev" "$code/repos" "$code/libs"; do
+for directory in $code "$HOME/.bin" "$code/dev" "$code/repos"; do
   if [ ! -d $directory ]; then
     mkdir $directory
     echo "$directory created"
