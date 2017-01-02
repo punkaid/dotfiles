@@ -23,10 +23,11 @@ DISABLE_UPDATE_PROMPT=true
 #
 # Paths
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-export PATH="$HOME/.bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="./bin:$PATH"
-export PATH=~/.composer/vendor/bin:$PATH
+export PATH="$PATH:$HOME/.bin"
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:./bin"
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 ##########################################################################################
 
 #
@@ -41,7 +42,7 @@ export EDITOR=vim
 #
 # Aditionnal sources
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-source $HOME/.aliases
+source $HOME/.zsh_aliases
 source $HOME/.env
 ##########################################################################################
 
