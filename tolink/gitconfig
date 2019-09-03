@@ -5,7 +5,7 @@
 	excludesfile = $HOME/.gitignore_global
 [user]
 	name = Sébastien Roy
-	email = sebastien.roy@anekdotes.com
+	email = *********@********.com
 [push]
 	default = simple
 [credential]
