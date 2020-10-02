@@ -2,10 +2,10 @@
 	ui = true
 [core]
 	editor = vim
-	excludesfile = $HOME/.gitignore_global
+	excludesfile = /Users/sr/.gitignore_global
 [user]
 	name = Sébastien Roy
-	email = *********@********.com
+	email = sebastien.roy@anekdotes.com
 [push]
 	default = simple
 [credential]

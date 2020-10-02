@@ -3,6 +3,14 @@
 # Ask for the administrator password upfront
 sudo -v
 
+loading () {
+  for (( i = 1; i <= $1; i ++)); do
+    printf "."
+    sleep 0.05
+  done
+  echo -e "\n\n"
+}
+
 # Color variables
 GREEN='\033[32m'
 NC='\033[0m'
@@ -16,46 +24,51 @@ echo "#                  lets do it                     #"
 echo "#                                                 #"
 echo -e "###################################################\n\n"
 
-read -p "Press enter to continue"
+echo "Press any key to conitnue or 'q' to exit"
 
+while : ; do
+  read -n 1 k <&1
+  if [[ $k = q ]] ; then
+    printf "\nQuitting from the program\n"
+    exit
+  else
+    printf "\n\n${GREEN}Starting the sequence${NC}\n"
+    break
+  fi
+done
+
+loading 20
 
 echo "Setting OSX preferences ..........................."
-sleep 1
+loading 10
 bash ./osx.sh
 echo -e "${GREEN}Preferences setted${NC}"
 echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
 
 
-echo "Installing Brew ..................................."
-sleep 1
+echo "Installing Homebrew ..............................."
+loading 10
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 echo -e "${GREEN}Homebrew installed${NC}"
 echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
 
 
 echo "Installing Brew Cask .............................."
-sleep 1
+loading 10
 brew tap caskroom/cask
-echo -e "${GREEN}Homebrew installed${NC}"
-echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
-
-
-echo "Installing softwares .............................."
-sleep 1
-bash ./brew.sh
-echo -e "${GREEN}Softwares installed${NC}"
+echo -e "${GREEN}Brew Cask installed${NC}"
 echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
 
 
 echo "Installing Composer ..............................."
-sleep 1
+loading 10
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 echo -e "${GREEN}Composer Installed${NC}"
 echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
 
 
-echo "Creating ~/Repos directories ......................"
-sleep 1
+echo "Creating ~/Repos folder ..........................."
+loading 10
 if [ ! -d ~/Repos ]; then
   mkdir ~/Repos
   echo -e "${GREEN}Repos folder created${NC}"
@@ -65,19 +78,8 @@ fi
 echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
 
 
-echo "Installing oh-my-zsh .............................."
-sleep 1
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  curl -L http://install.ohmyz.sh | sh
-  sudo chsh -s $(which zsh) $(whoami)
-  rm $HOME/.zshrc
-fi
-echo -e "${GREEN}Oh-my-zsh installed${NC}"
-echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
-
-
 echo "Creating simlink .................................."
-sleep 1
+loading 10
 DOTFILES=$HOME/dotfiles/tolink
 for file in $(ls $DOTFILES); do
   if [ ! -L "${HOME}/.$file" ]; then
@@ -88,7 +90,7 @@ done
 echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
 
 echo "Installing fonts .................................."
-sleep 1
+loading 10
 SOURCEFONTS="$HOME/dotfiles/resources/fonts"
 TARGETFONTS="$HOME/Library/Fonts"
 for font in $(ls $SOURCEFONTS); do
@@ -101,14 +103,14 @@ echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
 
 
 echo "Installing node and npm ..........................."
-sleep 1
+loading 10
 brew install node
 echo -e "${GREEN}Node and npm installed${NC}"
 echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
 
 
 echo "Installing gulp ..................................."
-sleep 1
+loading 10
 sudo shown $USER /usr/local/lib/node_modules
 npm install gulp-cli -g
 echo -e "${GREEN}Gulp installed${NC}"
@@ -116,7 +118,7 @@ echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
 
 
 echo "Creating SSH key .................................."
-sleep 1
+loading 10
 read -e -p "Please enter your desired SSH passphrase (leave blank for none): " sshpassphrase
 ssh-keygen -t rsa -N sshpassphrase -f temp_key
 mv temp_key ~/.ssh/id_rsa
@@ -126,10 +128,17 @@ echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
 
 
 echo "Installing Vundle ................................."
-sleep 1
+loading 10
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 echo -e "${GREEN}Vundle installed${NC}"
+echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
+
+
+echo "Installing softwares .............................."
+loading 10
+bash ./brew.sh
+echo -e "${GREEN}Softwares installed${NC}"
 echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
 
 

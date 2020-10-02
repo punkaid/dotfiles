@@ -6,7 +6,7 @@ ZSH_THEME=../..//dotfiles/resources/punkaid
 DISABLE_CORRECTION="true"
 ##########################################################################################
 
-cat $HOME/dotfiles/resources/welcome
+printf '%b\n' "$(cat $HOME/dotfiles/resources/welcome)"
 
 #
 # Plugins
@@ -14,19 +14,12 @@ cat $HOME/dotfiles/resources/welcome
 plugins=(git)
 ##########################################################################################
 
-source $ZSH/oh-my-zsh.sh
-
-#
-# Disable zsh update prompt
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-DISABLE_UPDATE_PROMPT=true
-##########################################################################################
-
 #
 # Paths
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:./bin"
+export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 ##########################################################################################
 
