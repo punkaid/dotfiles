@@ -8,8 +8,10 @@ set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and i
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'     " let Vundle manage Vundle, required
 
+Plugin 'mattn/emmet-vim'
 Plugin 'posva/vim-vue'
 Plugin 'evidens/vim-twig'
+Plugin 'jwalton512/vim-blade'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
@@ -17,17 +19,23 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
 call vundle#end()                 " required
-filetype plugin indent on         " required
 "#########################################################################################
 
 syntax on
+let g:user_emmet_leader_key='<C-Y>'
 
 "
 " Behaviors
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+filetype plugin indent on         " required
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+
 set hidden
-set nocompatible          " no vi support
-set clipboard=unnamed     " use mac clipboard
+"set clipboard=unnamed     " use mac clipboard
 set ttyfast               " optimize for fast terminal connections
 set encoding=utf-8 nobomb
 set binary                " no empty line at eof
@@ -40,9 +48,6 @@ set wildmenu              " shell style completion
 set gdefault              " add g flag to search & replace by default
 set ignorecase            " ignore searches case
 set incsearch             " dynamicly search
-set tabstop=2             " Tab by two
-set shiftwidth=2          " ^
-set expandtab             " ^ (spaces)
 set splitbelow            " More natural window splits
 set splitright
 set noswapfile            " dont create swapfile
@@ -92,3 +97,4 @@ if exists("&relativenumber")
   set relativenumber
 endif
 "#########################################################################################
+set expandtab

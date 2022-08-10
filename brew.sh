@@ -14,6 +14,7 @@ brew cask install macmediakeyfowarder
 brew cask install iterm2
 brew cask isntall visual-studio-code
 brew cask install google-chrome
+brew cask install firefox
 brew cask install postman
 #################################################
 
@@ -36,8 +37,9 @@ echo "#############################"
 echo "#                           #"
 echo "#    Now you can install    #"
 echo "#                           #"
-echo "#    - U-Torent             #"
-echo "#    - Lilius               #"
+echo "#    - Anonymous Font       #"
+echo "#                           #"
+echo "#    - Itsycal              #"
 echo "#    - Clean My Mac         #"
 echo "#    - Sketch               #"
 echo "#                           #"
