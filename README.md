@@ -3,11 +3,7 @@ Dotfiles !!
 
 It's a start.
 
-There is 2 branch
-- osx
-- ubuntu
+1. Homebrew
 
-select the right branch for your need then run
-$ bash install.sh
+must change [user] -> gitconfig
 
-then you must change [user] in gitconfig

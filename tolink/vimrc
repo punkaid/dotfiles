@@ -1,0 +1,100 @@
+"
+" Vundle
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+set nocompatible                  " be iMproved, required
+filetype off                      " required
+
+set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and initialize
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'     " let Vundle manage Vundle, required
+
+Plugin 'mattn/emmet-vim'
+Plugin 'posva/vim-vue'
+Plugin 'evidens/vim-twig'
+Plugin 'jwalton512/vim-blade'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-surround'
+call vundle#end()                 " required
+"#########################################################################################
+
+syntax on
+let g:user_emmet_leader_key='<C-Y>'
+
+"
+" Behaviors
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+filetype plugin indent on         " required
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+
+set hidden
+"set clipboard=unnamed     " use mac clipboard
+set ttyfast               " optimize for fast terminal connections
+set encoding=utf-8 nobomb
+set binary                " no empty line at eof
+set noeol                 " ^
+set exrc                  " per directory .vimrc
+set secure                " ^ in secure mode
+set noerrorbells          " no error bells
+set nostartofline         " no sol while moving
+set wildmenu              " shell style completion
+set gdefault              " add g flag to search & replace by default
+set ignorecase            " ignore searches case
+set incsearch             " dynamicly search
+set splitbelow            " More natural window splits
+set splitright
+set noswapfile            " dont create swapfile
+"#########################################################################################
+
+"
+" UI
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+syntax enable
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+set statusline=%t
+set modeline
+set modelines=4
+set laststatus=2                " always have status shown
+set number                      " line numbers
+set cursorline                  " hightlight current line
+set lcs=tab:▸\ ,trail:·,nbsp:_  " Show invisibles
+set hlsearch                    " highlight searches
+set incsearch                   " highlight first match
+set ruler                       " show the cursor position
+set showcmd                     " show the (partial) command as it’s being typed
+set showmode                    " show the current mode
+set title                       " Show the filename in the window titlebar
+set list                        " show whitespace
+set scrolloff=6                 " scroll page when at 6 line of end/top
+"#########################################################################################
+
+"
+" Commands
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+let mapleader=","               " have a better leader
+set backspace=indent,eol,start  " allow bckspace in insert
+nnoremap <CR> o<Esc>
+nnoremap <C-J> <C-W><C-J>       " Map Ctrl+hjkl to move around splits
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+noremap <leader>nt :NERDTree<CR>
+"#########################################################################################
+
+"
+" Use relative line numbers
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+if exists("&relativenumber")
+  set relativenumber
+endif
+"#########################################################################################
+set expandtab
