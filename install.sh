@@ -29,7 +29,7 @@ echo "Press any key to conitnue or 'q' to exit"
 while : ; do
   read -n 1 k <&1
   if [[ $k = q ]] ; then
-    printf "\nQuitting from the program\n"
+    printf "\nQuitting\n"
     exit
   else
     printf "\n\n${GREEN}Starting the sequence${NC}\n"
@@ -39,24 +39,10 @@ done
 
 loading 20
 
-echo "Setting OSX preferences ..........................."
-loading 10
-bash ./osx.sh
-echo -e "${GREEN}Preferences setted${NC}"
-echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
-
-
 echo "Installing Homebrew ..............................."
 loading 10
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo -e "${GREEN}Homebrew installed${NC}"
-echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
-
-
-echo "Installing Brew Cask .............................."
-loading 10
-brew tap caskroom/cask
-echo -e "${GREEN}Brew Cask installed${NC}"
 echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
 
 
@@ -127,12 +113,12 @@ echo -e "${GREEN}SSH created${NC}"
 echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
 
 
-echo "Installing Vundle ................................."
-loading 10
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
-echo -e "${GREEN}Vundle installed${NC}"
-echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
+# echo "Installing Vundle ................................."
+# loading 10
+# git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# vim +PluginInstall +qall
+# echo -e "${GREEN}Vundle installed${NC}"
+# echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n"
 
 
 echo "Installing softwares .............................."

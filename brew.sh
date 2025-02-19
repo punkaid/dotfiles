@@ -3,33 +3,40 @@
 
 # Mac Utilities
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-brew cask install alfred
-brew cask install spectacle
-brew cask install the-unarchiver
-brew cask install macmediakeyfowarder
+brew install --cask alfred
+brew install --cask alfred
+brew install --cask spectacle
+brew install --cask the-unarchiver
+brew install --cask itsycal
+# brew install --cask macmediakeyfowarder
 #################################################
 
 # Development
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-brew cask install iterm2
-brew cask isntall visual-studio-code
-brew cask install google-chrome
-brew cask install firefox
-brew cask install postman
+brew install --cask iterm2
+brew install --cask visual-studio-code
+brew install --cask google-chrome
+brew install --cask firefox
+brew install --cask postman
+#################################################
+
+# Design
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+brew install --cask sketch
 #################################################
 
 # Communications
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-brew cask install teamviewer
-brew cask install zoomus
-brew cask install slack
-brew cask install microsoft-teams
+brew install --cask teamviewer
+brew install --cask zoomus
+brew install --cask slack
+brew install --cask microsoft-teams
 #################################################
 
 # Fun
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-brew cask install spotify
-brew cask install twitch
+brew install --cask spotify
+brew install --cask twitch
 #################################################
 
 echo -e "\n\n${GREEN}#############################"
@@ -38,11 +45,7 @@ echo "#                           #"
 echo "#    Now you can install    #"
 echo "#                           #"
 echo "#    - Anonymous Font       #"
-echo "#                           #"
-echo "#    - Itsycal              #"
 echo "#    - Clean My Mac         #"
-echo "#    - Sketch               #"
-echo "#                           #"
 echo "#    - Mamp Pro             #"
 echo "#    - FileZilla            #"
 echo "#                           #"

@@ -37,7 +37,10 @@ alias curlrest='curl -v -H "Accept: application/json" -H "Content-type: applicat
 # Python3
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 alias py='python3'
-alias pi='python3 ~/Repos/anekdotes/pinger/ping.py'
+alias pi='python3 ~/dotfiles/scripts/pinger/ping.py'
+alias dom='python3 ~/dotfiles/scripts/domain/ping.py'
+alias pia='python3 ~/dotfiles/scripts/pinger/ping_all.py'
+alias pip="pip3"
 ##########################################################################################
 
 #
@@ -47,6 +50,7 @@ alias gaa='git add --all'
 alias gc='git commit -m'
 alias gp='git push origin HEAD'
 alias gpl='git push live master'
+alias gpb='git push live beta'
 alias gco='git checkout'
 alias gm='git merge --no-ff'
 alias gs='git status -sb' # it's fun.
@@ -66,17 +70,6 @@ alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^
 # Always use color output for `ls`
 #alias ls="command ls ${colorflag}"
 export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
-##########################################################################################
-
-
-#
-# Switch mamp php version helper
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-alias phpmamp="la /Applications/MAMP/bin/php/"
-function switchphpmamp() {
-  ln -sf /Applications/MAMP/bin/php/$1/bin/php /usr/local/bin/php
-  php -v
-}
 ##########################################################################################
 
 #
